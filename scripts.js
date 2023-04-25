@@ -17,13 +17,63 @@ btn.addEventListener("click", function() {
           }
     
           // Processa a resposta do fetch
-          document.querySelector(".results").style.display = "flex";
-          shortered.innerHTML = data.result.short_link;
-          document.getElementById("shortered1").innerHTML = data.result.short_link;
-          shortered.setAttribute("href", data.result.full_short_link);
-          document.getElementById("link").innerHTML = data.result.original_link;
-          document.getElementById("copy").style.display = "block";
-          document.getElementById("copied").style.display = "none";
+         // criando a div results
+          var divResults = document.createElement("div");
+          divResults.setAttribute("class", "results");
+
+          // criando o elemento span
+          var span = document.createElement("span");
+          span.textContent = data.result.original_link
+          span.setAttribute("id", "link");
+
+          // criando a div interna
+          var divInternal = document.createElement("div");
+
+          // criando o elemento a
+          var a = document.createElement("a");
+          a.setAttribute("href", data.result.full_short_link);
+          a.setAttribute("target", "_blank");
+          a.setAttribute("id", "shortered");
+          a.textContent = data.result.short_link
+
+          // criando o botão Copy
+          var buttonCopy = document.createElement("button");
+          buttonCopy.setAttribute("id", "copy");
+          buttonCopy.setAttribute("class", "copy");
+          buttonCopy.textContent = "Copy";
+
+          // criando o botão Copied
+          var buttonCopied = document.createElement("button");
+          buttonCopied.setAttribute("id", "copied");
+          buttonCopied.setAttribute("class", "copied");
+          buttonCopied.textContent = "Copied!";
+
+          // adicionando elementos filhos
+          divInternal.appendChild(a);
+          divInternal.appendChild(buttonCopy);
+          divInternal.appendChild(buttonCopied);
+
+          divResults.appendChild(span);
+          divResults.appendChild(divInternal);
+
+          // adicionando a div results ao elemento pai
+          var statics = document.getElementById("child");
+          var existingChild = statics.childNodes[1]; // segundo filho
+          statics.insertBefore(divResults, existingChild);
+
+          const copyButton = document.getElementById("copy");
+
+          // Adicione um ouvinte de evento ao botão de cópia
+          copyButton.addEventListener("click", () => {
+            // Selecione o campo de texto a ser copiado
+            const shortLink = data.result.short_link
+
+            navigator.clipboard.writeText(shortLink).then(() => {
+              document.getElementById('copy').style.display = "none"
+              document.getElementById('copied').style.display = "block"
+            })
+          });
+        
         })
         .catch((error) => {
           // Captura o erro do fetch ou erro no objeto de resposta JSON
@@ -35,19 +85,3 @@ btn.addEventListener("click", function() {
         document.getElementById("url").classList.add("error")
     }
 })
-
-const copyButton = document.getElementById("copy");
-
-// Adicione um ouvinte de evento ao botão de cópia
-copyButton.addEventListener("click", () => {
-  // Selecione o campo de texto a ser copiado
-  const shortLink = document.getElementById("shortered1");
-
-  // Selecionar o conteúdo do campo de texto
-  shortLink.select();
-
-  navigator.clipboard.writeText(shortLink.value).then(() => {
-    document.getElementById('copy').style.display = "none"
-    document.getElementById('copied').style.display = "block"
-  })
-});

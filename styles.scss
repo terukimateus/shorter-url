@@ -187,8 +187,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 2em;
 
+            .separador {
+                margin-top: 3em;
+                width: 3em;
+                border-bottom: 10px solid hsl(180, 66%, 49%);
+            }
 
             #card1 {
                 margin-top: 3em;
@@ -219,13 +223,14 @@
             }
         }
         .results {
-            background-color: white;
+            display: flex;
+            background-color: rgb(255, 255, 255);
             width: 65%;
             border-radius: 0.3em;
             align-items: center;
             justify-content: space-between;
             padding: 1em;
-            display: none;
+            
     
             div {
                 display: flex;
@@ -268,12 +273,94 @@
     }
 }
 
+#boost {
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4em;
+        gap: 2em;
+        background-image: url(images/bg-shorten-desktop.svg);
+        background-size: cover;
+        background-color: hsl(257, 27%, 26%);
+        
+        h2 {
+            color: white;
+            font-size: 2em;
+        }
+
+        button {
+            background-color: hsl(180, 66%, 49%);
+            width: 10em;
+            height: 3em;
+            color: white;
+            border: 0;
+            border-radius: 3em;
+            cursor: pointer;
+
+            &:hover {
+                background-color: hsl(180, 63%, 69%);
+            }
+        }
+    }
+}
+
+.footer {
+    footer {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 3em;
+        background-color: hsl(260, 8%, 14%);
+        color: white;
+
+        .footer-logo {
+            h2 {
+            font-size: 2em;
+             }
+        }
+
+        .foot-nav {
+            nav {
+                h2 {
+                    font-size: 1em;
+                }
+                ul {
+                    margin-top: 1em;
+                    list-style: none;
+                    font-weight: 300;
+                    color: hsl(0, 0%, 64%);
+                }
+            }
+        }
+
+        .social-links {
+            img {
+                margin-left: 1em;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .header {
         header {
             .nav-bar {
                 display: none;
             }
+        }
+    }
+    .footer {
+        footer {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 2em;
         }
     }
     #banner {
@@ -290,7 +377,11 @@
                 margin: 2em;
                 align-items: center;
                 justify-content: center;
-                width: 90%;
+                width: 80%;
+
+                h2 {
+                    font-size: 2.5em;
+                }
             }
         }
     }
@@ -316,8 +407,8 @@
 
     #statics {
         .container {
+            padding-top: 10em;
             .results {
-                margin-top: 4em;
                 width: 90%;
                 flex-direction: column;
                 align-items: start;
@@ -334,12 +425,26 @@
             .itens {
                 flex-direction: column;
 
+                .separador {
+                    width: 0;
+                    height: 7em;
+                    border-left: 10px solid hsl(180, 66%, 49%);
+                    margin: 0;
+                }
+
                 .card {
                     width: 90%;
                     text-align: center;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                }
+
+                #card1 {
+                    margin: 0;
+                }
+                #card2 {
+                    margin: 0;
                 }
             }
             .text {
