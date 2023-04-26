@@ -85,3 +85,15 @@ btn.addEventListener("click", function() {
         document.getElementById("url").classList.add("error")
     }
 })
+
+const hamburger = document.querySelector('.mobile-menu-icon')
+
+hamburger.addEventListener("click", function() {
+  const menu = document.querySelector('.mobile-menu')
+
+  if(menu.classList.contains('open')) {
+    menu.classList.remove('open')
+  } else  {
+    menu.classList.add("open")
+  }
+})

@@ -6,6 +6,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+.mobile-menu {
+  display: none;
+}
+
 .header {
   width: 100%;
 }
@@ -17,6 +21,9 @@
 }
 .header header h2 {
   font-size: 1.7em;
+}
+.header header .mobile-menu-icon {
+  display: none;
 }
 .header header .buttons {
   display: flex;
@@ -303,7 +310,78 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .open {
+    display: flex;
+  }
+  .header {
+    position: fixed;
+    z-index: 1;
+  }
+  .header .mobile-menu {
+    border-radius: 0.5em;
+    width: 90%;
+    left: 5%;
+    height: 35%;
+    position: fixed;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(257, 27%, 26%);
+  }
+  .header .mobile-menu .menu-bar {
+    text-align: center;
+  }
+  .header .mobile-menu .menu-bar ul {
+    flex-direction: column;
+    display: flex;
+    gap: 1em;
+    list-style: none;
+  }
+  .header .mobile-menu .menu-bar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  .header .mobile-menu .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 90%;
+  }
+  .header .mobile-menu .buttons .sign {
+    background-color: hsl(180, 66%, 49%);
+    color: white;
+    width: 100%;
+    height: 2.5em;
+    border: 0;
+    border-radius: 2em;
+    cursor: pointer;
+  }
+  .header .mobile-menu .buttons .sign:hover {
+    background-color: hsl(180, 63%, 69%);
+  }
+  .header .mobile-menu .buttons .login {
+    color: hsl(0, 0%, 100%);
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .header .mobile-menu .buttons .login:hover {
+    color: black;
+  }
+  .header header .mobile-menu-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header header .mobile-menu-icon img {
+    width: 70%;
+  }
   .header header .nav-bar {
+    display: none;
+  }
+  .header header .buttons {
     display: none;
   }
   .footer footer {
@@ -312,6 +390,9 @@
     align-items: center;
     text-align: center;
     gap: 2em;
+  }
+  #banner {
+    padding-top: 10em;
   }
   #banner .container {
     flex-direction: column-reverse;
