@@ -29,12 +29,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](https://cdn.discordapp.com/attachments/1067224434466902086/1100459914666713258/image.png)
+![COMPUTER](https://i.imgur.com/fJyY0WT.png)
 
+![cell](https://i.imgur.com/DmIeY61.png)
 
 ### Links
 
-- Live Site URL: [https://age-calculator-swart.vercel.app/](https://age-calculator-swart.vercel.app/)
+- Live Site URL: [https://shorter-amjo78bw0-terukimateus.vercel.app/](https://age-calculator-swart.vercel.app/)
 
 ## My process
 
